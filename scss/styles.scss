@@ -1,17 +1,131 @@
 // Imports
-
+@import 'partials/reset';
+@import 'partials/clearfix';
+@import 'partials/general_styles';
 
 
 // 1. Many small items in a grid
+.small-grid-flexbox ul{
+  width: 400px;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 auto;
+
+
+  li {
+    flex: 1 1 35px;
+    height: 40px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+}
 
 
 
 // 2. 2-Column Grid
+.two-col-grid-flexbox {
+  display: flex;
+  flex-flow: column wrap;
 
+  @include respond-to('medium') {
+    flex-flow: row nowrap;
+    align-items: flex-start;
+  }
+
+  .column-1 {
+    flex: 0 0 45%;
+
+    @include respond-to('medium') {
+      order: 1;
+    }
+  }
+
+  .colum-2 {
+    flex: 0 0 auto;
+  }
+}
 
 
 // 3. Centering
+.centering-formula-1 {
+  display:flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
 
+  .centered {
+    flex: 0 0 auto;
+  }
+
+}
+
+.centering-formula-2 {
+  display:flex;
+  flex-flow: row nowrap;
+
+  .centered {
+    flex: 0 0 auto;
+    margin: auto;
+  }
+}
 
 
 // 4. Ordering
+.ordering-block {
+  display: flex;
+  flex-flow: column nowrap;
+
+  @include respond-to('medium') {
+    flex-flow: row nowrap;
+  }
+
+  .item-a {
+    flex: 1 1 10%;
+    order: 4;
+    @include respond-to('medium') {
+      order: 1
+    }
+  }
+  .item-b {
+    flex: 1 1 20%;
+    order: 3;
+    @include respond-to('medium') {
+      order: 2;
+    }
+  }
+  .item-c {
+    flex: 1 1 30%;
+    order: 2;
+    @include respond-to('medium') {
+      order: 3;
+    }
+  }
+  .item-d {
+    flex: 1 1 40%;
+    order: 1;
+    @include respond-to('medium') {
+      order: 4;
+    }
+  }
+
+}
+
+// 5. Extra
+.extra-block {
+  display: flex;
+  flex-flow: column nowrap;
+  .item-a {
+    flex: 0 0 200px;
+  }
+  .item-b {
+    flex: 1 0 auto;
+  }
+  .item-c {
+    flex: 0 0 200px;
+  }
+  .item-d {
+    flex: 1 0 auto;
+  }
+}
